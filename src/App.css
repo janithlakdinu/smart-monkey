@@ -1,0 +1,145 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f3f4f6;
+  
+}
+
+.app {
+  text-align: center;
+  position: relative; /* To position the overlay correctly */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  background-image: url('./assets/back.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.app .background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(199, 63, 63, 0.5); /* White overlay with reduced opacity */
+  z-index: 1; /* Ensure it stays behind the content */
+  border-radius: 15px; /* Matches the border radius of .app */
+}
+
+.app-content {
+  position: relative; /* Ensures content stays above the overlay */
+  z-index: 2; /* Content above overlay */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -20px;
+  padding: 10%;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-image {
+  height: 50px; /* Adjust height as needed */
+  object-fit: contain; /* Ensures the logo scales well */
+}
+
+.language-select {
+  font-size: 0.9rem;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 40%;
+  margin-left: -35%;
+}
+
+.battery-status {
+  margin: 20px 0;
+}
+
+.alert-button-container {
+  margin: 20px 0;
+}
+
+.alert-button {
+  background: #ff4d4d;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.alert-button:hover {
+  background: #e64444;
+}
+
+.device-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #df0606;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #09ff00;
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+.footer {
+  margin-top: 20px;
+}
