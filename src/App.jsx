@@ -5,12 +5,15 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { FaCloud } from 'react-icons/fa';
 import logo from './assets/Frame 15.png';
-import Test from './Test';
+import BatteryStatus from './BatteryStatus';
 
 function App() {
   const [ledState, setLedState] = useState(false);
   const [loading, setLoading] = useState(true);
   const [batteryVoltage, setBatteryVoltage] = useState(0); // State to store battery voltage
+
+  // const [batteryStatus, setBatteryStatus] = useState(null);
+  const [error, setError] = useState(null);
 
   const ipAddress = "http://192.168.4.1";  // Replace with your ESP32 IP address
   const phpBackendUrl = "http://localhost/smartmonkey_backend.php"; // Path to your PHP backend
@@ -28,25 +31,30 @@ function App() {
       });
   }, []);
 
-  // Fetch battery voltage from the backend
-  useEffect(() => {
-    const fetchBatteryVoltage = () => {
-      axios
-        .get(phpBackendUrl)
-        .then((response) => {
-          if (response.data && response.data.voltage) {
-            setBatteryVoltage(parseFloat(response.data.voltage));
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching battery voltage:", error);
-        });
-    };
 
-    fetchBatteryVoltage();
-    const interval = setInterval(fetchBatteryVoltage, 5000); // Refresh every 5 seconds
-    return () => clearInterval(interval);
-  }, []);
+  // Fetch battery voltage from the backend
+
+    useEffect(() => {
+      const fetchBatteryStatus = async () => {
+        try {
+          const response = await fetch('http://localhost/smartmonkey_backend.php');
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const data = await response.json();
+          if(data){
+            setBatteryVoltage(parseFloat(data.voltage));
+          }
+          // setBatteryStatus(data);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchBatteryStatus();
+    }, []);
 
   // Handle LED state change
   const handleLedChange = (event) => {
@@ -106,9 +114,6 @@ function App() {
           <span className="slider"></span>
         </label>
       </div>
-
-      {/* <br> */}
-      <Test />
     </div>
   );
 }
