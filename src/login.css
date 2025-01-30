@@ -1,0 +1,155 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  /* overflow-y: hidden; */
+  /* background: linear-gradient(135deg, #ee670d, #a1bcc8); */
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; */
+}
+
+/* Login Container */
+.login-container {
+  /* text-align: center; */
+  /* width: 100%; */
+  min-width: 100vw;
+  min-height: 100dvh;
+  /* padding: 20px; Add padding for smaller screens */
+  background-image: url("../src//assets/background.png");
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  /* text-align: center;
+  margin-bottom: 10%;
+  padding-top: 10%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 0 0 3em; */
+}
+
+/* Logo */
+.logo {
+  /* width: 80%; Reduced size for smaller screens */
+  max-width: 19rem; /* Ensure it doesn't get too large */
+  height: auto; /* Maintain aspect ratio */
+  align-items: center;
+  margin-bottom: 30%;
+}
+
+/* Login Box */
+.login-box {
+  background: rgba(255, 255, 255, 0.205);
+  border-radius: 20px;
+  padding: 0 5rem 1rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* margin: auto; */
+}
+
+/* Login Title */
+.login-title {
+  padding-top: 0.5rem;
+  /* font-size: em; */
+  color: #121fd7;
+  /* margin-bottom: 20px; */
+}
+
+/* Input Fields */
+.input-field {
+  /* width: 90%; */
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #f06292;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Login Button */
+.login-button {
+  background: #f06292;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: #ec407a;
+}
+
+/* Sign Up Text */
+.sign-up-text {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.sign-up-link {
+  text-decoration: none;
+  color: #f06292;
+  font-weight: bold;
+}
+
+.sign-up-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer Image */
+.footer {
+  margin-top: 20px;
+}
+
+.footer-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo {
+    /* width: 70%; Reduce logo size further for smaller screens */
+    /* margin-bottom: 10%; Adjust margin */
+  }
+
+  .login-title {
+    font-size: 1.2rem; /* Reduce font size */
+  }
+
+  .input-field {
+    font-size: 0.9rem; /* Adjust input field size */
+  }
+
+  .login-button {
+    font-size: 0.9rem; /* Reduce button font size */
+    padding: 8px 15px; /* Adjust padding */
+  }
+
+  .login-box {
+    width: 15rem;
+    padding: 0.2rem 2rem;
+  }
+}

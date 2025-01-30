@@ -1,3 +1,4 @@
+/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -7,44 +8,46 @@ body {
   align-items: center;
   height: 100vh;
   background: #f3f4f6;
-  
 }
 
 .app {
   text-align: center;
-  position: relative; /* To position the overlay correctly */
+  position: relative;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  background-image: url('./assets/back.png');
+  width: 90%; /* Adjusted for smaller screens */
+  max-width: 350px;
+  background-image: url('./assets/bg.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
+/* Overlay */
 .app .background-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(199, 63, 63, 0.5); /* White overlay with reduced opacity */
-  z-index: 1; /* Ensure it stays behind the content */
-  border-radius: 15px; /* Matches the border radius of .app */
+  background-color: rgba(199, 63, 63, 0.5);
+  z-index: 1;
+  border-radius: 15px;
 }
 
 .app-content {
-  position: relative; /* Ensures content stays above the overlay */
-  z-index: 2; /* Content above overlay */
+  position: relative;
+  z-index: 2;
 }
 
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: -20px;
-  padding: 10%;
+  margin-bottom: 20px;
+  padding: 5%;
 }
 
 .logo {
@@ -53,8 +56,9 @@ body {
 }
 
 .logo-image {
-  height: 50px; /* Adjust height as needed */
-  object-fit: contain; /* Ensures the logo scales well */
+  height: 40px; /* Scaled down for smaller screens */
+  object-fit: contain;
+  align-self: center;
 }
 
 .language-select {
@@ -62,14 +66,15 @@ body {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  margin-top: 40%;
-  margin-left: -35%;
 }
 
+/* Battery status */
 .battery-status {
   margin: 20px 0;
+  text-align: center;
 }
 
+/* Alert button */
 .alert-button-container {
   margin: 20px 0;
 }
@@ -88,6 +93,7 @@ body {
   background: #e64444;
 }
 
+/* Device status */
 .device-status {
   display: flex;
   justify-content: space-between;
@@ -95,6 +101,7 @@ body {
   margin-top: 20px;
 }
 
+/* Switch toggle */
 .switch {
   position: relative;
   display: inline-block;
@@ -140,6 +147,90 @@ input:checked + .slider:before {
   transform: translateX(25px);
 }
 
+/* Footer */
 .footer {
   margin-top: 20px;
+  text-align: center;
+}
+
+/* Font details */
+.fdt, .bst {
+  font-family: 'Cinzel', serif;
+  font-size: 0.875rem; /* Adjusted for smaller screens */
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #eb1111;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to right, hsl(0, 100%, 50%), hsl(0, 100%, 50%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.8);
+  border-radius: 12px;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fdt:hover, .bst:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .logo-image {
+    height: 30px;
+  }
+
+  .alert-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .switch {
+    width: 40px;
+    height: 20px;
+  }
+
+  .slider:before {
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 2.5px;
+  }
+
+  .language-select {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .alert-button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
 }
